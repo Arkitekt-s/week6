@@ -1,20 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import SecondPage from "./pages/SecondPage";
+import FirstPage from "./pages/FirstPage";
+import {createStackNavigator} from "@react-navigation/stack";
+import {NavigationContainer} from "@react-navigation/native";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const Stack = createStackNavigator();
+
+  const myStack = () => {
+    return (
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen name="firstPage" component={FirstPage} options={{ title: "Welcome to app" }} />
+            {<Stack.Screen name="secondPage" component={SecondPage} options={{ title: "week6" }} />}
+          </Stack.Navigator>
+        </NavigationContainer>
+    );
+  }
+export default myStack;
